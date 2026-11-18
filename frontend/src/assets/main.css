@@ -1,35 +1,28 @@
-@import './base.css';
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
-}
-
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-}
+/* Дизайн-система: «белый мрамор и глубокий синий». Шрифты подключены в index.html */
+:root{--bg-main:#F8F9FA;--text-main:#1A1A1A;--accent-dark:#1C2E54;--accent-bright:#2563EB;--soft:#EEF2FF;--card-bg:#FFF;--border:#E5E7EB;--muted:#6B7280;--shadow:0 4px 20px rgba(0,0,0,.05);--ok:#15803D;--bad:#B91C1C}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg-main);color:var(--text-main);font:16px/1.5 'Inter',system-ui,sans-serif}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;color:var(--accent-dark);margin:0}
+button,input,select{font:inherit;color:inherit}
+a,button,input,select{transition:all .3s ease}
+:focus-visible{outline:3px solid var(--accent-bright);outline-offset:2px}
+.btn-primary,.btn-outline{display:inline-flex;align-items:center;gap:8px;border-radius:8px;padding:10px 20px;font-weight:500;cursor:pointer;text-decoration:none}
+.btn-primary{background:var(--accent-bright);color:#fff;border:1px solid var(--accent-bright);box-shadow:0 4px 14px #2563eb40}
+.btn-primary:hover:not(:disabled){background:#1d4ed8;transform:translateY(-2px)}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed;box-shadow:none}
+.btn-outline{background:transparent;color:var(--accent-dark);border:1px solid var(--border)}
+.btn-outline:hover{border-color:var(--accent-bright);color:var(--accent-bright)}
+.field{display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--muted)}
+.field input,.field select,.input{padding:10px 12px;border:1px solid var(--border);border-radius:8px;background:#fff;color:var(--text-main)}
+.field input:focus,.field select:focus,.input:focus{border-color:var(--accent-bright)}
+.field .err{color:var(--bad);font-size:13px}
+.panel{background:var(--card-bg);border:1px solid var(--border);border-radius:8px;box-shadow:var(--shadow);padding:24px}
+.badge{display:inline-block;border-radius:99px;padding:2px 12px;font-size:13px;font-weight:500;background:var(--soft);color:var(--accent-bright)}
+.badge.ok{background:#DCFCE7;color:var(--ok)}.badge.bad{background:#FEE2E2;color:var(--bad)}
+.work{padding:32px 4vw;max-width:1100px;width:100%}
+.work>h1{font-size:30px;margin-bottom:20px}
+.fade{animation:fade .6s ease-out both}
+@keyframes fade{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.note{margin:0 0 16px;padding:10px 14px;border-radius:8px;background:var(--soft);font-size:14px}
+.note.bad{background:#FEE2E2;color:var(--bad)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
